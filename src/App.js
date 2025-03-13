@@ -1,14 +1,16 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import User from './pages/User';
 
 function App() {
+  const location = useLocation();
+
   return (
     <main>
       <div className='container'>
-          <Routes basename="/github-finder">
-            <Route exact path='/' element={<Home />} />
-            <Route exact path='/user/:username' element={<User />} />
+          <Routes location={location} key={location.pathname} >
+            <Route path='/' element={<Home />} />
+            <Route path='/user/:username' element={<User />} />
           </Routes>
         </div>
     </main>

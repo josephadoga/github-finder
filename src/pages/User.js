@@ -18,7 +18,7 @@ function User() {
   return (
     <>
       <Helmet>
-        <title>username</title>
+        <title>{userData.name}</title>
       </Helmet>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
