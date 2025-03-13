@@ -1,14 +1,28 @@
+import React, { useState } from 'react';
 
-function Search() {
-  // const message = <p>Username not Found</p>;
+function Search(props) {
+  const [username, setUsername] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.onSubmit(username);
+    setUsername('');
+  };
+
   return (
     <>
-      <form>
-        <input type='text' placeholder='Username' />
+      <form autoComplete='off' onSubmit={handleSubmit}>
+        <input 
+          type='text'
+          placeholder='Username'
+          name='name'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
       </form>
       <p className='message'>Welcome to Github Finder</p>
     </>
-  )
+  );
 }
 
 export default Search;

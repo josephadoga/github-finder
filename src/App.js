@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-// import User from './pages/User';
+import User from './pages/User';
 
 function App() {
   return (
     <main>
       <div className='container'>
-          <Routes>
+          <Routes basename="/github-finder">
             <Route exact path='/' element={<Home />} />
-            {/* <Route exact path='/user' element={<User />} /> */}
+            <Route exact path='/user/:username' element={<User />} />
           </Routes>
         </div>
     </main>
